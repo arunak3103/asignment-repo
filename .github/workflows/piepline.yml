@@ -84,6 +84,7 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
         script: |
+          ECR_REPO=${{ secrets.ECR_REPO }}
           docker pull $ECR_REPO:latest
           docker stop app || true
           docker rm app || true
